@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    width: 300px;
+    border-radius: 30px;
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  h3 {
+    color: red;
+  }
+
+  .display{
+    padding: 1em;
+    background: rgb(84, 98, 84);
+    border-radius: 20px;
+  }
+
+  .keypad {
+    width: 90%s;
+    display: grid;
+    grid-template-columns:  repeat(4, 1fr);
+    /* grid-template-rows: repeat(5, 100px); */
+    gap: 2em
+  }
+
+  .key{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: gray;
+    width: 3em;
+    aspect-ratio: 1/1;
+    color: white;
+    border-radius: 1000px;
+    box-shadow: 10px 10px 10px 0 black;
+  }
+
+  .orange{
+    background: orange;
+  }
