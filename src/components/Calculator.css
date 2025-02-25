@@ -10,7 +10,7 @@ body{
 }
 
 .calculator {
-    width: 300px;
+    max-width: 300px;
     border-radius: 30px;
     background-color: lightblue;
     padding: 20px;
@@ -18,14 +18,18 @@ body{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), 
+    -1px -1px 8px  rgba(255, 255, 255, 0.5);
   }
   
   h3 {
     color: rgb(3, 2, 2);
+    letter-spacing: 3px;
     display: flex;
     justify-content: center;
     font-size: 3em;
     font-family: 'Digital-7 Mono', sans-serif;
+    margin-bottom: 0.5em;
   }
 
   .display{
@@ -58,7 +62,6 @@ body{
     width: 90%s;
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
-    /* grid-template-rows: repeat(5, 100px); */
     gap: 1em
   }
 
@@ -69,23 +72,34 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: gray;
+    background: rgb(148, 147, 147);
     width: 4em;
     aspect-ratio: 1/1;
     color: white;
     border-radius: 50%;
-    box-shadow: 6px 6px 6px 0 black;
-}
-
-.orange{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), 
+    -5px -5px 10px 1px rgba(255, 255, 255, 0.5);
+  }
+  
+  .orange{
     background: orange;
-}
-
-.key:active,
-.key.pressed {
-    opacity: 0.8;
-    box-shadow: 4px 4px 4px 0 black;
+  }
+  
+  .key:active,
+  .key.pressed {
+  background: rgb(160, 159, 159);
+    /* opacity: 0.8; */
+    transform: translate(1px);
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.5)
 
   }
 
+  .orange:active,
+  .orange.pressed{
+    background: rgb(228, 170, 62);
+}
 
+span img{
+  width: 30px;
+  margin-right: 5px;
+}

@@ -9,15 +9,15 @@ export default function  Calculator() {
     const [total, setTotal] = useState(0)
     const [keyPressed, setKeyPressed] = useState(null)    
 
+
     function ButtonClicked(value) {
         if (total === 'Error' || query === 'AC') {
             setQuery('')
             setTotal(0)
         }
 
-        console.log(value);
-        
-        setQuery(prev => prev + value)       
+
+        setQuery(prev => prev + value)    
         
         if (value === 'AC') {
             setQuery('AC');
@@ -46,8 +46,15 @@ export default function  Calculator() {
         
         if (value === '=') {
             try {
+
+                let result = evaluate(query);
+
+                if (result.toString().length > 10) {
+                    result = Number(result.toPrecision(10));
+                }
+
                 setQuery(prev => prev += value)  
-                setTotal(evaluate(query));
+                setTotal(result);
                 setHistory(old => old = query);
                 setQuery('');
                 
@@ -66,6 +73,7 @@ export default function  Calculator() {
         function handleKeyPress(event) {
             const {key} = event
 
+            
             if (keys.includes(key)) {
                 setKeyPressed(key)
                 ButtonClicked(key)
@@ -76,7 +84,9 @@ export default function  Calculator() {
             } else if ( key === 'Backspace') {
                 setKeyPressed('<')
                 ButtonClicked('<')
-                
+            } else if ( key === 'Delete') {
+                setKeyPressed('AC')
+                ButtonClicked('AC')
             }
             
         }
@@ -96,16 +106,16 @@ export default function  Calculator() {
         };
     }, [query])
 
-    const keys = ["AC", "√", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "<", "0", ",", "="];
+    const keys = ["AC", "√", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "<", "0", ".", "="];
     const orangeKeys = ["/", "*", "-", "+", "="];
 
     return (
         <>
-          <h3>Calculator</h3>
+          <h3>Calculat<span><img src="logo.png" alt="" srcset="" /></span>r</h3> 
             <div className="calculator">
                 <div className='display'>
                     <div className='total'>Total: {total}</div>
-                    <div className='query'>{query !== '' ? query: history}</div>
+                    <div className='query'> {query.length > 25 ? `...${query.slice(-25)}` : query !== '' ? query :history.length > 25 ? `...${history.slice(-25)}` : history}</div>
                 </div>
                 <div className="keypad">
                     {keys.map((key) => (
