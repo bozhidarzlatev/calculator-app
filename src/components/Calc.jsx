@@ -32,7 +32,7 @@ export default function  Calculator() {
         
         if (value === '=') {
             try {
-                setQuery(prev => prev += value)       
+                setQuery(prev => prev += value)  
                 setTotal(evaluate(query));
                 setHistory(old => old = query);
                 setQuery('');
@@ -43,8 +43,34 @@ export default function  Calculator() {
             }
             
         }
+
+        
+        
         
     }
+    useEffect(() => {
+        function handleKeyPress(event) {
+            const {key} = event
+            console.log(key);
+
+            if (keys.includes(key)) {
+                ButtonClicked(key)
+            } else if ( key === 'Enter') {
+                ButtonClicked('=')
+                
+            } else if ( key === 'Backspace') {
+                ButtonClicked('<')
+                
+            }
+            
+        }
+        window.addEventListener('keydown', handleKeyPress)
+        
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress)
+
+        };
+    }, [query])
 
     const keys = ["AC", "+/-", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "<", "0", ",", "="];
     const orangeKeys = ["/", "*", "-", "+", "="];
