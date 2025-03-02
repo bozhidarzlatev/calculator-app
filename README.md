@@ -1,8 +1,9 @@
-# React + Vite
+# Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hello this is my basic calculator app. 
+React + Vite was used for the development of the app. 
 
-Currently, two official plugins are available:
+live at:
+https://elka-smqtai.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+v1.0 - basic functionalities: addition, subtraction, multiplication, division, %, square root.
