@@ -56,7 +56,7 @@ export default function  Calculator() {
             try {
                 let result = evaluate(query);
                 if (result.toString().length > 10) {
-                    result = Number(result.toPrecision(10));
+                    result = Number(result.toPrecision(9));
                 }
 
                 setQuery(prev => prev += value)  
