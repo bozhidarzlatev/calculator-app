@@ -9,8 +9,15 @@ export default function  Calculator() {
     const [total, setTotal] = useState(0)
     const [keyPressed, setKeyPressed] = useState(null)    
 
-
+    
     function ButtonClicked(value) {
+        
+        
+        if (query === '' && !nums.includes(value)) {
+            
+            setQuery(prevQuery => prevQuery = total)
+        }
+        
         if (total === 'Error' || query === 'AC') {
             setQuery('')
             setTotal(0)
@@ -45,10 +52,9 @@ export default function  Calculator() {
         }
         
         if (value === '=') {
+            
             try {
-
                 let result = evaluate(query);
-
                 if (result.toString().length > 10) {
                     result = Number(result.toPrecision(10));
                 }
@@ -64,11 +70,8 @@ export default function  Calculator() {
             }
             
         }
-
-        
-        
-        
     }
+
     useEffect(() => {
         function handleKeyPress(event) {
             const {key} = event
@@ -106,12 +109,13 @@ export default function  Calculator() {
         };
     }, [query])
 
+    const nums = ['1','2','3','4','5','6','7','8','9','0'];
     const keys = ["AC", "√", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "<", "0", ".", "="];
     const orangeKeys = ["/", "*", "-", "+", "="];
 
     return (
         <>
-          <h3>Calculat<span><img src="logo.png" alt="" srcset="" /></span>r</h3> 
+          <h3>Calculat<span><img src="logo.png"  /></span>r</h3> 
             <div className="calculator">
                 <div className='display'>
                     <div className='total'>Total: {total}</div>
